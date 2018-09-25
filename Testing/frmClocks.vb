@@ -117,4 +117,8 @@
         btnLunch.Show()
         btnStop.Hide()
     End Sub
+
+    Private Sub frmClocks_Load(sender As Object, e As EventArgs) Handles Me.Load
+        Me.Location = New Point(Screen.PrimaryScreen.WorkingArea.Width - Me.Width, Screen.PrimaryScreen.WorkingArea.Height - Me.Height)
+    End Sub
 End Class
