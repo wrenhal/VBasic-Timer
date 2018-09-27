@@ -24,14 +24,10 @@ Partial Class frmClocks
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.tmrClocks = New System.Windows.Forms.Timer(Me.components)
-        Me.tmrBreak = New System.Windows.Forms.Timer(Me.components)
-        Me.tmrLunch = New System.Windows.Forms.Timer(Me.components)
         Me.lblClock = New System.Windows.Forms.Label()
         Me.lblClocks24 = New System.Windows.Forms.Label()
-        Me.lblBreak = New System.Windows.Forms.Label()
-        Me.lblBreakLeft = New System.Windows.Forms.Label()
-        Me.lblLunch = New System.Windows.Forms.Label()
-        Me.lblLunchLeft = New System.Windows.Forms.Label()
+        Me.lblTimer = New System.Windows.Forms.Label()
+        Me.lblIdentity = New System.Windows.Forms.Label()
         Me.btnBreak = New System.Windows.Forms.Button()
         Me.btnLunch = New System.Windows.Forms.Button()
         Me.btnExit = New System.Windows.Forms.Button()
@@ -42,14 +38,6 @@ Partial Class frmClocks
         '
         Me.tmrClocks.Enabled = True
         Me.tmrClocks.Interval = 1000
-        '
-        'tmrBreak
-        '
-        Me.tmrBreak.Interval = 1000
-        '
-        'tmrLunch
-        '
-        Me.tmrLunch.Interval = 1000
         '
         'lblClock
         '
@@ -83,67 +71,36 @@ Partial Class frmClocks
         Me.lblClocks24.TabIndex = 1
         Me.lblClocks24.Text = "12:00:00"
         '
-        'lblBreak
+        'lblTimer
         '
-        Me.lblBreak.AutoSize = True
-        Me.lblBreak.BackColor = System.Drawing.Color.Black
-        Me.lblBreak.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblBreak.Cursor = System.Windows.Forms.Cursors.No
-        Me.lblBreak.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.lblBreak.Font = New System.Drawing.Font("alarm clock", 48.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblBreak.ForeColor = System.Drawing.Color.DodgerBlue
-        Me.lblBreak.Location = New System.Drawing.Point(490, 191)
-        Me.lblBreak.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
-        Me.lblBreak.Name = "lblBreak"
-        Me.lblBreak.Size = New System.Drawing.Size(204, 69)
-        Me.lblBreak.TabIndex = 2
-        Me.lblBreak.Text = "15:00"
+        Me.lblTimer.AutoSize = True
+        Me.lblTimer.BackColor = System.Drawing.Color.Black
+        Me.lblTimer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.lblTimer.Cursor = System.Windows.Forms.Cursors.No
+        Me.lblTimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.lblTimer.Font = New System.Drawing.Font("alarm clock", 48.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTimer.ForeColor = System.Drawing.Color.DodgerBlue
+        Me.lblTimer.Location = New System.Drawing.Point(393, 274)
+        Me.lblTimer.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        Me.lblTimer.Name = "lblTimer"
+        Me.lblTimer.Size = New System.Drawing.Size(301, 69)
+        Me.lblTimer.TabIndex = 4
+        Me.lblTimer.Text = "00:00:00"
         '
-        'lblBreakLeft
+        'lblIdentity
         '
-        Me.lblBreakLeft.AutoSize = True
-        Me.lblBreakLeft.BackColor = System.Drawing.Color.Black
-        Me.lblBreakLeft.Cursor = System.Windows.Forms.Cursors.No
-        Me.lblBreakLeft.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.lblBreakLeft.Font = New System.Drawing.Font("Arial", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblBreakLeft.ForeColor = System.Drawing.Color.DodgerBlue
-        Me.lblBreakLeft.Location = New System.Drawing.Point(246, 191)
-        Me.lblBreakLeft.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
-        Me.lblBreakLeft.Name = "lblBreakLeft"
-        Me.lblBreakLeft.Size = New System.Drawing.Size(190, 37)
-        Me.lblBreakLeft.TabIndex = 3
-        Me.lblBreakLeft.Text = "Break Time"
-        '
-        'lblLunch
-        '
-        Me.lblLunch.AutoSize = True
-        Me.lblLunch.BackColor = System.Drawing.Color.Black
-        Me.lblLunch.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblLunch.Cursor = System.Windows.Forms.Cursors.No
-        Me.lblLunch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.lblLunch.Font = New System.Drawing.Font("alarm clock", 48.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblLunch.ForeColor = System.Drawing.Color.DodgerBlue
-        Me.lblLunch.Location = New System.Drawing.Point(489, 274)
-        Me.lblLunch.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
-        Me.lblLunch.Name = "lblLunch"
-        Me.lblLunch.Size = New System.Drawing.Size(205, 69)
-        Me.lblLunch.TabIndex = 4
-        Me.lblLunch.Text = "30:00"
-        '
-        'lblLunchLeft
-        '
-        Me.lblLunchLeft.AutoSize = True
-        Me.lblLunchLeft.BackColor = System.Drawing.Color.Black
-        Me.lblLunchLeft.Cursor = System.Windows.Forms.Cursors.No
-        Me.lblLunchLeft.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.lblLunchLeft.Font = New System.Drawing.Font("Arial", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblLunchLeft.ForeColor = System.Drawing.Color.DodgerBlue
-        Me.lblLunchLeft.Location = New System.Drawing.Point(246, 274)
-        Me.lblLunchLeft.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
-        Me.lblLunchLeft.Name = "lblLunchLeft"
-        Me.lblLunchLeft.Size = New System.Drawing.Size(196, 37)
-        Me.lblLunchLeft.TabIndex = 5
-        Me.lblLunchLeft.Text = "Lunch Time"
+        Me.lblIdentity.AutoSize = True
+        Me.lblIdentity.BackColor = System.Drawing.Color.Black
+        Me.lblIdentity.Cursor = System.Windows.Forms.Cursors.No
+        Me.lblIdentity.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.lblIdentity.Font = New System.Drawing.Font("Arial", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblIdentity.ForeColor = System.Drawing.Color.DodgerBlue
+        Me.lblIdentity.Location = New System.Drawing.Point(246, 285)
+        Me.lblIdentity.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        Me.lblIdentity.Name = "lblIdentity"
+        Me.lblIdentity.Size = New System.Drawing.Size(105, 37)
+        Me.lblIdentity.TabIndex = 5
+        Me.lblIdentity.Text = "Timer"
         '
         'btnBreak
         '
@@ -192,13 +149,11 @@ Partial Class frmClocks
         Me.BackColor = System.Drawing.Color.Black
         Me.ClientSize = New System.Drawing.Size(719, 365)
         Me.Controls.Add(Me.btnStop)
-        Me.Controls.Add(Me.lblLunchLeft)
+        Me.Controls.Add(Me.lblIdentity)
         Me.Controls.Add(Me.btnLunch)
-        Me.Controls.Add(Me.lblLunch)
+        Me.Controls.Add(Me.lblTimer)
         Me.Controls.Add(Me.btnExit)
-        Me.Controls.Add(Me.lblBreakLeft)
         Me.Controls.Add(Me.btnBreak)
-        Me.Controls.Add(Me.lblBreak)
         Me.Controls.Add(Me.lblClocks24)
         Me.Controls.Add(Me.lblClock)
         Me.Cursor = System.Windows.Forms.Cursors.Default
@@ -214,14 +169,10 @@ Partial Class frmClocks
 
     End Sub
     Friend WithEvents tmrClocks As Timer
-    Friend WithEvents tmrBreak As Timer
-    Friend WithEvents tmrLunch As Timer
     Friend WithEvents lblClock As Label
     Friend WithEvents lblClocks24 As Label
-    Friend WithEvents lblBreak As Label
-    Friend WithEvents lblBreakLeft As Label
-    Friend WithEvents lblLunch As Label
-    Friend WithEvents lblLunchLeft As Label
+    Friend WithEvents lblTimer As Label
+    Friend WithEvents lblIdentity As Label
     Friend WithEvents btnBreak As Button
     Friend WithEvents btnLunch As Button
     Friend WithEvents btnExit As Button

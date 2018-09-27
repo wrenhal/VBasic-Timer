@@ -19,6 +19,7 @@
     Private Sub BtnBreak_Click(sender As Object, e As EventArgs) Handles btnBreak.Click
         dtFuture = DateTime.Now.AddMinutes(15)
         ' tmrBreak.Start()
+        lblIdentity.Text = "Break"
         isBreak = True
         btnBreak.Hide()
         btnLunch.Hide()
@@ -28,6 +29,7 @@
     Private Sub btnLunch_Click(sender As Object, e As EventArgs) Handles btnLunch.Click
         dtFuture = DateTime.Now.AddMinutes(30)
         ' tmrLunch.Start()
+        lblIdentity.Text = "Lunch"
         isLunch = True
         btnBreak.Hide()
         btnLunch.Hide()
@@ -41,8 +43,10 @@
         isCall = False
         isLunch = False
         ' dtFuture = DateTime.Now
-        lblLunch.Text = "30:00"
-        lblBreak.Text = "15:00"
+        ' lblLunch.Text = "30:00"
+        ' lblBreak.Text = "15:00
+        lblIdentity.Text = "Timer"
+        lblTimer.Text = "00:00:00"
         btnBreak.Show()
         btnLunch.Show()
         btnStop.Hide()
@@ -60,18 +64,19 @@
                     ' Display the new time left
                     ' by updating the Time Left label.
                     tsCount = dtFuture - DateTime.Now
-                    lblBreak.Text = String.Format("{0:D2}:{1:D2}", tsCount.Minutes, tsCount.Seconds)
+                    lblTimer.Text = String.Format("{0:D2}:{1:D2}", tsCount.Minutes, tsCount.Seconds)
                 Else
                     ' If the user ran out of time, stop the timer, show a MessageBox
                     ' and reset buttons and labels
                     ' tmrBreak.Stop()
-                    lblBreak.Text = "00:00"
+                    lblTimer.Text = "00:00"
                     isBreak = False
                     MessageBox.Show("Your Break is OVER.", "Sorry!")
+                    lblIdentity.Text = "Timer"
                     btnBreak.Show()
                     btnLunch.Show()
                     btnStop.Hide()
-                    lblBreak.Text = "15:00"
+                    lblTimer.Text = "00:00"
                 End If
 
             Case isLunch
@@ -79,64 +84,23 @@
                     ' Display the new time left
                     ' by updating the Time Left label.
                     tsCount = dtFuture - DateTime.Now
-                    lblLunch.Text = String.Format("{0:D2}:{1:D2}", tsCount.Minutes, tsCount.Seconds)
+                    lblTimer.Text = String.Format("{0:D2}:{1:D2}", tsCount.Minutes, tsCount.Seconds)
                 Else
                     ' If the user ran out of time, stop the timer, show a MessageBox
                     ' and reset buttons and labels
                     ' tmrLunch.Stop()
-                    lblLunch.Text = "00:00"
+                    lblTimer.Text = "00:00"
                     isLunch = False
                     MessageBox.Show("Your Break is OVER.", "Sorry!")
+                    lblIdentity.Text = "Timer"
                     btnBreak.Show()
                     btnLunch.Show()
                     btnStop.Hide()
-                    lblLunch.Text = "30:00"
+                    lblTimer.Text = "00:00:00"
                 End If
         End Select
         lblClock.Text = DateTime.Now.ToString("hh:mm:ss tt")
         lblClocks24.Text = TimeString
-
-    End Sub
-
-    Private Sub tmrBreak_Tick(sender As Object, e As EventArgs) Handles tmrBreak.Tick
-
-        If dtFuture > DateTime.Now Then
-            ' Display the new time left
-            ' by updating the Time Left label.
-            tsCount = dtFuture - DateTime.Now
-            lblBreak.Text = String.Format("{0:D2}:{1:D2}", tsCount.Minutes, tsCount.Seconds)
-        Else
-            ' If the user ran out of time, stop the timer, show a MessageBox
-            ' and reset buttons and labels
-            tmrBreak.Stop()
-            lblBreak.Text = "00:00"
-            MessageBox.Show("Your Break is OVER.", "Sorry!")
-            btnBreak.Show()
-            btnLunch.Show()
-            btnStop.Hide()
-            lblBreak.Text = "15:00"
-        End If
-
-    End Sub
-
-    Private Sub tmrLunch_Tick(sender As Object, e As EventArgs) Handles tmrLunch.Tick
-
-        If dtFuture > DateTime.Now Then
-            ' Display the new time left
-            ' by updating the Time Left label.
-            tsCount = dtFuture - DateTime.Now
-            lblLunch.Text = String.Format("{0:D2}:{1:D2}", tsCount.Minutes, tsCount.Seconds)
-        Else
-            ' If the user ran out of time, stop the timer, show a MessageBox
-            ' and reset buttons and labels
-            tmrLunch.Stop()
-            lblLunch.Text = "00:00"
-            MessageBox.Show("Your Break is OVER.", "Sorry!")
-            btnBreak.Show()
-            btnLunch.Show()
-            btnStop.Hide()
-            lblLunch.Text = "30:00"
-        End If
 
     End Sub
 
@@ -166,4 +130,5 @@
             isMouseDown = False
         End If
     End Sub
+
 End Class
