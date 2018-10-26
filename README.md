@@ -21,7 +21,9 @@ I removed the 24 hour clock and have cleaned up the interface a little.
 
 ### Things still to do:
 ------
--I will need to add the Call Timer next and then I will add the ability for the program to Log the button presses to a file for future reference. I will add a call start label and a call length label (part of the same label for breaks and lunches).  Both will reset when the user presses the stop button.  
+-DONE * I will need to add the Call Timer next, I will add a call start label and a call length label (part of the same label for breaks and lunches).  Both will reset when the user presses the stop button.
+-I will add the ability for the program to Log the button presses to a file for future reference.  
+-Once I have the writing to a file down I will then work on switching to using a SQLite Database instead.  
 ** I'm not going to do this** -My original program at this point kept counting to show you how long you went over and you had to hit a reset button for it to stop.  I'm not sure if I'll add that for now.
 -DONE * Also I may move the break/lunch/call timers all to 1 label to tighten up the interface.
 -DONE * Also thinking about ways to setup boolean variables within the button click events to initialize the timer and every tick have the timer check those variables in a loop.  That would allow me to only have one timer handling all 4 timer tasks:
