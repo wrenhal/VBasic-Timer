@@ -5,6 +5,7 @@
     Private isCall As Boolean = False
     Private isLunch As Boolean = False
     Private isBreak As Boolean = False
+    Private SW As New Stopwatch
 
     ' This integer variable keeps track of the 
     ' remaining time.
@@ -23,6 +24,7 @@
         isBreak = True
         btnBreak.Hide()
         btnLunch.Hide()
+        btnCall.Hide()
         btnStop.Show()
     End Sub
 
@@ -33,7 +35,18 @@
         isLunch = True
         btnBreak.Hide()
         btnLunch.Hide()
+        btnCall.Hide()
         btnStop.Show()
+    End Sub
+
+    Private Sub btnCall_Click(sender As Object, e As EventArgs) Handles btnCall.Click
+        lblIdentity.Text = "Call"
+        btnBreak.Hide()
+        btnLunch.Hide()
+        btnCall.Hide()
+        btnStop.Show()
+        SW.Start()
+        isCall = True
     End Sub
 
     Private Sub btnStop_Click(sender As Object, e As EventArgs) Handles btnStop.Click
@@ -49,7 +62,10 @@
         lblTimer.Text = "00:00:00"
         btnBreak.Show()
         btnLunch.Show()
+        btnCall.Show()
         btnStop.Hide()
+        SW.Stop()
+        SW.Reset()
     End Sub
 
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
@@ -64,7 +80,7 @@
                     ' Display the new time left
                     ' by updating the Time Left label.
                     tsCount = dtFuture - DateTime.Now
-                    lblTimer.Text = String.Format("{0:D2}:{1:D2}", tsCount.Minutes, tsCount.Seconds)
+                    lblTimer.Text = String.Format("{0:D2}:{1:D2}:{2:D2}", tsCount.Hours, tsCount.Minutes, tsCount.Seconds)
                 Else
                     ' If the user ran out of time, stop the timer, show a MessageBox
                     ' and reset buttons and labels
@@ -84,7 +100,7 @@
                     ' Display the new time left
                     ' by updating the Time Left label.
                     tsCount = dtFuture - DateTime.Now
-                    lblTimer.Text = String.Format("{0:D2}:{1:D2}", tsCount.Minutes, tsCount.Seconds)
+                    lblTimer.Text = String.Format("{0:D2}:{1:D2}:{2:D2}", tsCount.Hours, tsCount.Minutes, tsCount.Seconds)
                 Else
                     ' If the user ran out of time, stop the timer, show a MessageBox
                     ' and reset buttons and labels
@@ -98,9 +114,13 @@
                     btnStop.Hide()
                     lblTimer.Text = "00:00:00"
                 End If
+
+            Case isCall
+                lblTimer.Text = SW.Elapsed.ToString("hh\:mm\:ss")
+
         End Select
         lblClock.Text = DateTime.Now.ToString("hh:mm:ss tt")
-        lblClocks24.Text = TimeString
+        ' lblClocks24.Text = TimeString   I've removed the 24 Hour Label
 
     End Sub
 

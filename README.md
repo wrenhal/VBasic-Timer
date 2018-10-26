@@ -14,6 +14,11 @@ I have clocks for reference, in both standard and 24hr. times for now, that will
 
 I have now added two variables: isBreak and isLunch and created an a select-case structure to set which count to use for the timer.  Then added if-else statements under each case to handle the timing count all within the timer's tick event.  
 
+I've added the isCall variable, btnCall button and added the isCall case to the timer.  I'm using the Stopwatch method to get the time elapsed from when the Stopwatch is started to the next tick of the Timer.  
+
+I removed the 24 hour clock and have cleaned up the interface a little.
+
+
 ### Things still to do:
 ------
 -I will need to add the Call Timer next and then I will add the ability for the program to Log the button presses to a file for future reference. I will add a call start label and a call length label (part of the same label for breaks and lunches).  Both will reset when the user presses the stop button.  
