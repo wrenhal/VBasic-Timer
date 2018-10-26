@@ -22,11 +22,17 @@ I removed the 24 hour clock and have cleaned up the interface a little.
 ### Things still to do:
 ------
 -DONE * I will need to add the Call Timer next, I will add a call start label and a call length label (part of the same label for breaks and lunches).  Both will reset when the user presses the stop button.
--I will add the ability for the program to Log the button presses to a file for future reference.  
--Once I have the writing to a file down I will then work on switching to using a SQLite Database instead.  
+
+-I will add the ability for the program to Log the button presses to a file for future reference.
+
+-Once I have the writing to a file down I will then work on switching to using a SQLite Database instead.
+
 ** I'm not going to do this** -My original program at this point kept counting to show you how long you went over and you had to hit a reset button for it to stop.  I'm not sure if I'll add that for now.
+
 -DONE * Also I may move the break/lunch/call timers all to 1 label to tighten up the interface.
+
 -DONE * Also thinking about ways to setup boolean variables within the button click events to initialize the timer and every tick have the timer check those variables in a loop.  That would allow me to only have one timer handling all 4 timer tasks:
+
 -Need to get current path where exe is being run from. Save that into a variable. Then check to see if the save file exists and create it if it doesn't.  
 
 ``` Dim dataDirectory As String = String.Format("{0}\Data\", Environment.CurrentDirectory)
@@ -58,7 +64,7 @@ Module Module1
 End Module
 
 ```
- Decided to use Select-Case instead of the below structure.  I believe this is cleaner.
+ Decided to use Select-Case instead of the below structure.  I believe that is a cleaner solution than below.
  ```
  if iscall true and isbreak AND islunch = false then call and clock
  elseif isbreak is true and islunch and iscall false then break and clock
