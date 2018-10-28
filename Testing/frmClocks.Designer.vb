@@ -32,6 +32,7 @@ Partial Class frmClocks
         Me.btnExit = New System.Windows.Forms.Button()
         Me.btnStop = New System.Windows.Forms.Button()
         Me.btnCall = New System.Windows.Forms.Button()
+        Me.txtDataDir = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'tmrClocks
@@ -137,11 +138,22 @@ Partial Class frmClocks
         Me.btnCall.Text = "Call"
         Me.btnCall.UseVisualStyleBackColor = True
         '
+        'txtDataDir
+        '
+        Me.txtDataDir.Location = New System.Drawing.Point(253, 295)
+        Me.txtDataDir.Name = "txtDataDir"
+        Me.txtDataDir.ReadOnly = True
+        Me.txtDataDir.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal
+        Me.txtDataDir.Size = New System.Drawing.Size(418, 22)
+        Me.txtDataDir.TabIndex = 8
+        Me.txtDataDir.WordWrap = False
+        '
         'frmClocks
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.Black
         Me.ClientSize = New System.Drawing.Size(719, 365)
+        Me.Controls.Add(Me.txtDataDir)
         Me.Controls.Add(Me.btnCall)
         Me.Controls.Add(Me.btnStop)
         Me.Controls.Add(Me.lblIdentity)
@@ -171,4 +183,5 @@ Partial Class frmClocks
     Friend WithEvents btnExit As Button
     Friend WithEvents btnStop As Button
     Friend WithEvents btnCall As Button
+    Friend WithEvents txtDataDir As TextBox
 End Class
