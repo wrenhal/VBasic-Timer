@@ -18,12 +18,16 @@ I've added the isCall variable, btnCall button and added the isCall case to the 
 
 I removed the 24 hour clock and have cleaned up the interface a little.
 
+I have now added the file access.  Logging the button clicks to a Comma Delimited file "timer.db"  I get the current folder the EXE is being run from and create the file in this same folder or just open for appending.  
+
+I now have the base for switching to SQLite just to get the knowledge.
+
 
 ### Things still to do:
 ------
 -DONE * I will need to add the Call Timer next, I will add a call start label and a call length label (part of the same label for breaks and lunches).  Both will reset when the user presses the stop button.
 
--I will add the ability for the program to Log the button presses to a file for future reference.
+-DONE *I will add the ability for the program to Log the button presses to a file for future reference.
 
 -Once I have the writing to a file down I will then work on switching to using a SQLite Database instead.
 
@@ -35,35 +39,6 @@ I removed the 24 hour clock and have cleaned up the interface a little.
 
 -Need to get current path where exe is being run from. Save that into a variable. Then check to see if the save file exists and create it if it doesn't.  
 
-``` Dim dataDirectory As String = String.Format("{0}\Data\", Environment.CurrentDirectory)
-    Dim SavePath as string = system.io.path.combine(dataDirectory, Filename)
-    if system.io.file.exists(savePath) then
-   'The file exists so open file for writing
-else 
-    'the file doesn't exist so create the file and then open the file for writing.
-end if
-' Below is generic to create file .
-Imports System
-Imports System.IO
-Imports System.Text
-
-Module Module1
-
-    Sub Main()
-        Dim path As String = "c:\temp\MyTest.txt"
-
-        ' Create or overwrite the file.
-        Dim fs As FileStream = File.Create(path)
-
-        ' Add text to the file.
-        Dim info As Byte() = New UTF8Encoding(True).GetBytes("This is some text in the file.")
-        fs.Write(info, 0, info.Length)
-        fs.Close()
-    End Sub
-
-End Module
-
-```
  Decided to use Select-Case instead of the below structure.  I believe that is a cleaner solution than below.
  ```
  if iscall true and isbreak AND islunch = false then call and clock
