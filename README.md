@@ -25,6 +25,9 @@ I now have the base for switching to SQLite just to get the knowledge.
 
 ### Things still to do:
 ------
+-Before doing Database I'd like to add the ability to clear the file, backup the file with filename of Backup-MMDDYY-hhmmss-timer.db in a backup folder so need to create the backup folder if it doesn't exist.  
+Also need to display the contents of folder in a new window with a datagrid component showing the information in columns.
+
 -DONE * I will need to add the Call Timer next, I will add a call start label and a call length label (part of the same label for breaks and lunches).  Both will reset when the user presses the stop button.
 
 -DONE *I will add the ability for the program to Log the button presses to a file for future reference.
