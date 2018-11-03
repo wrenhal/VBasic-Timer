@@ -24,19 +24,14 @@ Public Class frmClocks
 
     Private Sub frmClocks_Load(sender As Object, e As EventArgs) Handles Me.Load
         Me.Location = New Point(Screen.PrimaryScreen.WorkingArea.Width - Me.Width, Screen.PrimaryScreen.WorkingArea.Height - Me.Height)
-        ' txtDataDir.Text = Environment.CurrentDirectory
         txtDataDir.Text = DataFile ' for now this is to make sure what directory is being used
-
-        ' fs = New FileStream(DataFile, FileMode.Append, FileAccess.ReadWrite)
 
     End Sub
 
     Private Sub BtnBreak_Click(sender As Object, e As EventArgs) Handles btnBreak.Click
         strBreak = System.DateTime.Now.ToString("yyyy/MM/dd") & "," & System.DateTime.Now.ToString("hh:mm:ss") & ",Break Start" & Environment.NewLine
         My.Computer.FileSystem.WriteAllText(DataFile, strBreak, True)
-        ' fs.Write(breakStart, 1, breakStart.Count)
         dtFuture = DateTime.Now.AddMinutes(15)
-        ' tmrBreak.Start()
         lblIdentity.Text = "Break"
         isBreak = True
         btnBreak.Hide()
@@ -49,7 +44,6 @@ Public Class frmClocks
         strLunch = System.DateTime.Now.ToString("yyyy/MM/dd") & "," & System.DateTime.Now.ToString("hh:mm:ss") & ",Lunch Start" & Environment.NewLine
         My.Computer.FileSystem.WriteAllText(DataFile, strLunch, True)
         dtFuture = DateTime.Now.AddMinutes(30)
-        ' tmrLunch.Start()
         lblIdentity.Text = "Lunch"
         isLunch = True
         btnBreak.Hide()
@@ -86,11 +80,6 @@ Public Class frmClocks
                 My.Computer.FileSystem.WriteAllText(DataFile, strCall, True)
 
         End Select
-        ' tmrLunch.Stop()
-        ' tmrBreak.Stop()
-        ' dtFuture = DateTime.Now
-        ' lblLunch.Text = "30:00"
-        ' lblBreak.Text = "15:00
         lblIdentity.Text = "Timer"
         lblTimer.Text = "00:00:00"
         btnBreak.Show()
@@ -123,7 +112,8 @@ Public Class frmClocks
                     ' tmrBreak.Stop()
                     lblTimer.Text = "00:00"
                     isBreak = False
-                    MessageBox.Show("Your Break is OVER.", "Sorry!")
+                    'MessageBox.Show("Your Break is OVER.", "Sorry!", MessageBoxIcon.Error)
+                    MessageBox.Show("Your Break is OVER!", "Sorry!", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     strBreak = System.DateTime.Now.ToString("yyyy/MM/dd") & "," & System.DateTime.Now.ToString("hh:mm:ss") & ",Break End" & Environment.NewLine
                     My.Computer.FileSystem.WriteAllText(DataFile, strBreak, True)
                     lblIdentity.Text = "Timer"
@@ -145,7 +135,7 @@ Public Class frmClocks
                     ' tmrLunch.Stop()
                     lblTimer.Text = "00:00"
                     isLunch = False
-                    MessageBox.Show("Your Lunch is OVER.", "Sorry!")
+                    MessageBox.Show("Your Lunch is OVER.", "Sorry!", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     strLunch = System.DateTime.Now.ToString("yyyy/MM/dd") & "," & System.DateTime.Now.ToString("hh:mm:ss") & ",Lunch End" & Environment.NewLine
                     My.Computer.FileSystem.WriteAllText(DataFile, strLunch, True)
                     lblIdentity.Text = "Timer"
