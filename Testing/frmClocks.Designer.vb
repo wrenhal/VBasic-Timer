@@ -33,6 +33,8 @@ Partial Class frmClocks
         Me.btnStop = New System.Windows.Forms.Button()
         Me.btnCall = New System.Windows.Forms.Button()
         Me.txtDataDir = New System.Windows.Forms.TextBox()
+        Me.lblClient = New System.Windows.Forms.Label()
+        Me.tbClient = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'tmrClocks
@@ -65,7 +67,7 @@ Partial Class frmClocks
         Me.lblTimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.lblTimer.Font = New System.Drawing.Font("alarm clock", 48.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTimer.ForeColor = System.Drawing.Color.DodgerBlue
-        Me.lblTimer.Location = New System.Drawing.Point(370, 163)
+        Me.lblTimer.Location = New System.Drawing.Point(370, 229)
         Me.lblTimer.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.lblTimer.Name = "lblTimer"
         Me.lblTimer.Size = New System.Drawing.Size(301, 69)
@@ -80,7 +82,7 @@ Partial Class frmClocks
         Me.lblIdentity.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.lblIdentity.Font = New System.Drawing.Font("Arial", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblIdentity.ForeColor = System.Drawing.Color.DodgerBlue
-        Me.lblIdentity.Location = New System.Drawing.Point(246, 163)
+        Me.lblIdentity.Location = New System.Drawing.Point(246, 229)
         Me.lblIdentity.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.lblIdentity.Name = "lblIdentity"
         Me.lblIdentity.Size = New System.Drawing.Size(105, 37)
@@ -140,7 +142,7 @@ Partial Class frmClocks
         '
         'txtDataDir
         '
-        Me.txtDataDir.Location = New System.Drawing.Point(253, 295)
+        Me.txtDataDir.Location = New System.Drawing.Point(253, 321)
         Me.txtDataDir.Name = "txtDataDir"
         Me.txtDataDir.ReadOnly = True
         Me.txtDataDir.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal
@@ -148,11 +150,36 @@ Partial Class frmClocks
         Me.txtDataDir.TabIndex = 8
         Me.txtDataDir.WordWrap = False
         '
+        'lblClient
+        '
+        Me.lblClient.AutoSize = True
+        Me.lblClient.BackColor = System.Drawing.Color.Black
+        Me.lblClient.Cursor = System.Windows.Forms.Cursors.No
+        Me.lblClient.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.lblClient.Font = New System.Drawing.Font("Arial", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblClient.ForeColor = System.Drawing.Color.DodgerBlue
+        Me.lblClient.Location = New System.Drawing.Point(246, 121)
+        Me.lblClient.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        Me.lblClient.Name = "lblClient"
+        Me.lblClient.Size = New System.Drawing.Size(108, 37)
+        Me.lblClient.TabIndex = 9
+        Me.lblClient.Text = "Client"
+        '
+        'tbClient
+        '
+        Me.tbClient.Location = New System.Drawing.Point(370, 121)
+        Me.tbClient.Multiline = True
+        Me.tbClient.Name = "tbClient"
+        Me.tbClient.Size = New System.Drawing.Size(301, 37)
+        Me.tbClient.TabIndex = 10
+        '
         'frmClocks
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.Black
         Me.ClientSize = New System.Drawing.Size(719, 365)
+        Me.Controls.Add(Me.tbClient)
+        Me.Controls.Add(Me.lblClient)
         Me.Controls.Add(Me.txtDataDir)
         Me.Controls.Add(Me.btnCall)
         Me.Controls.Add(Me.btnStop)
@@ -184,4 +211,6 @@ Partial Class frmClocks
     Friend WithEvents btnStop As Button
     Friend WithEvents btnCall As Button
     Friend WithEvents txtDataDir As TextBox
+    Friend WithEvents lblClient As Label
+    Friend WithEvents tbClient As TextBox
 End Class

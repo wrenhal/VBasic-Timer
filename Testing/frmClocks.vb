@@ -29,7 +29,7 @@ Public Class frmClocks
     End Sub
 
     Private Sub BtnBreak_Click(sender As Object, e As EventArgs) Handles btnBreak.Click
-        strBreak = System.DateTime.Now.ToString("yyyy/MM/dd") & "," & System.DateTime.Now.ToString("hh:mm:ss") & ",Break Start" & Environment.NewLine
+        strBreak = System.DateTime.Now.ToString("yyyy/MM/dd") & "," & System.DateTime.Now.ToString("hh:mm:ss") & "," & tbClient.Text & ",Break Start" & Environment.NewLine
         My.Computer.FileSystem.WriteAllText(DataFile, strBreak, True)
         dtFuture = DateTime.Now.AddMinutes(15)
         lblIdentity.Text = "Break"
@@ -68,7 +68,7 @@ Public Class frmClocks
 
         Select Case True
             Case isBreak
-                strBreak = System.DateTime.Now.ToString("yyyy/MM/dd") & "," & System.DateTime.Now.ToString("hh:mm:ss") & ",Break Stop" & Environment.NewLine
+                strBreak = System.DateTime.Now.ToString("yyyy/MM/dd") & "," & System.DateTime.Now.ToString("hh:mm:ss") & "," & tbClient.Text & ",Break Stop" & Environment.NewLine
                 My.Computer.FileSystem.WriteAllText(DataFile, strBreak, True)
 
             Case isLunch
@@ -180,5 +180,6 @@ Public Class frmClocks
             isMouseDown = False
         End If
     End Sub
+
 
 End Class
